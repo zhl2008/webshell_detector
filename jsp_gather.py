@@ -6,10 +6,13 @@ import time
 import hashlib
 import tencent
 import ali
+import sys
 
 def md5(string):
     return hashlib.md5(string).hexdigest()
-pathdir = '/root/webshell_sample'	
+#pathdir = '/root/webshell_sample'	
+pathdir = sys.argv[1]
+destdir = sys.argv[2]
 wis = 'jsp|jspx'
 filepaths = []	    
 for fpathe,dirs,fs in os.walk(pathdir):
@@ -27,6 +30,6 @@ for f in filepaths:
     f = f.replace("'","\\'")
     print str(i) + " => " + f
     postfix = "." + f.split(".")[-1]
-    copy = os.popen("cp " + f + " /root/jsp_sample/" + filename + postfix)
+    copy = os.popen("cp " + f + " " + destdir + "/"  + filename + postfix)
     copy.close()
     i += 1 
