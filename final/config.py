@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-time_span = 4
+time_span = 0
 
 max_file_size = 102400 * 3
 
